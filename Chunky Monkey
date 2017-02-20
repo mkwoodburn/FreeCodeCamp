@@ -1,0 +1,27 @@
+Write a function that splits an array (first argument) into groups the length of size 
+(second argument) and returns them as a two-dimensional array.
+
+function chunkArrayInGroups(arr, size) {
+  var newArray = [];
+  if (size % 2 === 0 || size % 3 === 0){
+    var num = arr.length;
+    var newSize = size;
+    var i = 0;
+    while (num > 0){
+      var sliced = arr.slice(i, newSize);
+      newArray.push(sliced);
+      i += size;
+      newSize += size;
+      num -= size;
+      }
+  }
+  return newArray;
+}
+
+chunkArrayInGroups(["a", "b", "c", "d"], 2); should return [["a", "b"], ["c", "d"]].
+chunkArrayInGroups([0, 1, 2, 3, 4, 5], 3); //should return [[0, 1, 2], [3, 4, 5]].
+chunkArrayInGroups([0, 1, 2, 3, 4, 5], 2); //should return [[0, 1], [2, 3], [4, 5]].
+chunkArrayInGroups([0, 1, 2, 3, 4, 5], 4); //should return [[0, 1, 2, 3], [4, 5]].
+chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6], 3); //should return [[0, 1, 2], [3, 4, 5], [6]].
+chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 4); //should return [[0, 1, 2, 3], [4, 5, 6, 7], [8]].
+chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 2); //should return [[0, 1], [2, 3], [4, 5], [6, 7], [8]].
