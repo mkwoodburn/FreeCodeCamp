@@ -1,1 +1,17 @@
+function destroyer(...arguments) {
+  var args = Array.prototype.slice.call(arguments);
+  array1 = [];
+  for (i = 0; i < args.length; i++){
+    if (i === 0){array1 = args[i];
+    }else {
+      array1 = array1.filter(function(x) {return x !== args[i]})
+    }
+  }
+  console.log(array1)
+}
 
+destroyer([1, 2, 3, 1, 2, 3], 2, 3) //should return [1, 1]
+destroyer([1, 2, 3, 5, 1, 2, 3], 2, 3) //should return [1, 5, 1]
+destroyer([3, 5, 1, 2, 2], 2, 3, 5) //should return [1]
+destroyer([2, 3, 2, 3], 2, 3) //should return []
+destroyer(["tree", "hamburger", 53], "tree", 53) //should return ["hamburger"].
